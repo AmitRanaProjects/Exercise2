@@ -26,10 +26,10 @@ class PetStoreClient:
         )
         
         if response.status_code == 200:
-            print(f"✅ User '{username}' created successfully!")
+            print(f"User '{username}' created successfully!")
             return response.json()
         else:
-            print(f"❌ Failed to create user: {response.status_code} - {response.text}")
+            print(f"Failed to create user: {response.status_code} - {response.text}")
             return {}
     
     def get_user(self, username: str) -> Dict:
@@ -37,10 +37,10 @@ class PetStoreClient:
         response = self.session.get(f"{self.base_url}/user/{username}")
         
         if response.status_code == 200:
-            print(f"✅ User data retrieved successfully!")
+            print(f"User data retrieved successfully!")
             return response.json()
         else:
-            print(f"❌ Failed to retrieve user: {response.status_code} - {response.text}")
+            print(f"Failed to retrieve user: {response.status_code} - {response.text}")
             return {}
     
     def get_pets_by_status(self, status: str = "sold") -> List[Dict]:
@@ -51,10 +51,10 @@ class PetStoreClient:
         )
         
         if response.status_code == 200:
-            print(f"✅ Retrieved {len(response.json())} pets with status '{status}'")
+            print(f"Retrieved {len(response.json())} pets with status '{status}'")
             return response.json()
         else:
-            print(f"❌ Failed to retrieve pets: {response.status_code} - {response.text}")
+            print(f"Failed to retrieve pets: {response.status_code} - {response.text}")
             return []
     
     def get_sold_pets_names(self) -> List[Tuple[int, str]]:
